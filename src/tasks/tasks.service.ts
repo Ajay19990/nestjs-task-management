@@ -29,4 +29,8 @@ export class TasksService {
     const task = this.tasks.find((element) => element.id == id);
     return task;
   }
+
+  deleteTask(id: string): void {
+    this.tasks = this.tasks.filter((element) => element.id !== id);
+  }
 }
