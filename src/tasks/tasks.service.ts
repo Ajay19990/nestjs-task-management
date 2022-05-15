@@ -26,14 +26,9 @@ export class TasksService {
 
     if (search) {
       tasks = tasks.filter((element) => {
-        if (
-          element.title.includes(search) ||
-          element.description.includes(search)
-        ) {
-          return true;
-        }
-
-        return false;
+        return (
+          element.title.includes(search) || element.description.includes(search)
+        );
       });
     }
 
