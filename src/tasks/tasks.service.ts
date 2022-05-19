@@ -52,9 +52,10 @@ export class TasksService {
     }
   }
 
-  // udpateTaskStatus(id: string, status: TaskStatus) {
-  //   const task = this.getTaskById(id);
-  //   task.status = status;
-  //   return task;
-  // }
+  async udpateTaskStatus(id: string, status: TaskStatus): Promise<Task> {
+    const task = await this.getTaskById(id);
+    task.status = status;
+    this.tasksRepository.save(task);
+    return task;
+  }
 }
